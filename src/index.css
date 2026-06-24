@@ -1,3 +1,62 @@
+
+   :root {
+  /* Color Palette - Modern & Professional */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #a855f7;
+  --accent: #f472b6;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --white: #ffffff;
+  
+  /* Spacing */
+  --section-padding: 80px 20px;
+  --container-width: 1200px;
+  
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--light);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
 /* NAVBAR */
 .navbar {
   height: 80px;
@@ -22,20 +81,22 @@
 .navbar .logo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--primary);
+ color: var(--primary);  
 }
 
 .navbar .menu-links {
   display: flex;
   gap: 30px;
+  cursor: pointer;
 }
 
-.navbar .menu-links a:hover {
-  color: var(--primary);
+ .navbar .menu-links :hover {
+  color:#4338ca; 
 }
- HERO 
- .hero {
-   padding: 100px 20px; 
+
+/* HERO */
+.hero {
+  padding: 100px 20px;
   text-align: center;
   background: radial-gradient(circle at top right, #e0e7ff, transparent),
               radial-gradient(circle at bottom left, #f3e8ff, transparent);
@@ -49,22 +110,21 @@
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  color: #060dce;
-  justify-content: center;
-   margin-bottom:200px; 
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
   font-size: 1.25rem;
-  color: gray;
+  color: var(--gray);
   max-width: 600px;
-  margin-top:10px;
   margin-bottom: 30px;
 }
 
 .btn-primary {
-  background-color:#060dce; 
-  color:rgb(255, 255, 255);
+  background: var(--primary);
+  color: white;
   padding: 15px 35px;
   border-radius: 50px;
   font-weight: 600;
@@ -74,12 +134,14 @@
 
 .btn-primary:hover {
   background: var(--primary-hover);
-   transform: translateY(-2px); 
-  color: #7e22ce;
+  transform: translateY(-2px);
+  background-color: #e0e7ff;
+  color:#4338ce;
 }
-ABOUT 
-  .about {
-  padding:500px;
+
+/* ABOUT */
+.about {
+  padding: var(--section-padding);
 }
 
 .about .content {
@@ -87,15 +149,14 @@ ABOUT
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
-  
-  
 }
-.about-image {
-  display: flex;
-  height: 300px;
-  max-width: 400px;
-}  
-  COURSES 
+.content .about-image {
+ width: 500px;
+ 
+}
+
+
+/* COURSES */
 .courses {
   padding: var(--section-padding);
   background: #f1f5f9;
@@ -103,7 +164,7 @@ ABOUT
 
 .courses h2 {
   text-align: center;
-   margin-bottom: 100px; 
+  margin-bottom: 50px;
   font-size: 2.5rem;
 }
 
@@ -125,7 +186,8 @@ ABOUT
   transform: translateY(-10px);
   box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
 }
-TESTIMONIALS 
+
+/* TESTIMONIALS */
 .testimonials {
   padding: var(--section-padding);
 }
@@ -136,6 +198,7 @@ TESTIMONIALS
   gap: 20px;
   padding: 20px 0;
 }
+
 .testimonial-card {
   min-width: 300px;
   background: var(--white);
@@ -144,7 +207,7 @@ TESTIMONIALS
   border-left: 5px solid var(--primary);
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
- CONTACT 
+/* CONTACT */
 .contact {
   padding: var(--section-padding);
   background: var(--dark);
@@ -177,11 +240,54 @@ TESTIMONIALS
   font-weight: 600;
   cursor: pointer;
 }
- FOOTER 
+
+/* FOOTER */
 .footer {
   padding: 40px 20px;
   text-align: center;
   background: #0a0f1c;
-  color: rgba(229, 219, 219, 0.6);
+  color: rgba(255,255,255,0.6);
   border-top: 1px solid rgba(255,255,255,0.1);
-}  
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+    min-height: 60vh;
+  }
+  
+  .hero h1 { 
+    font-size: 2.2rem; 
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .about .content { grid-template-columns: 1fr; }
+  
+  .navbar .menu-links { 
+    display: none; 
+  }
+  
+  /* Simple mobile menu fallback for assignment */
+  .navbar .container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+  
+  .navbar {
+    height: auto;
+  }
+
+  .testimonial-container {
+    flex-direction: column;
+  }
+  
+  .testimonial-card {
+    min-width: 100%;
+  }
+}

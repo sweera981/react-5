@@ -1,6 +1,6 @@
 import React from "react";
-{/*import topCard from "/api/topCard.json";
-import studentsSay from "/api/studentsSay.json";*/}
+import topCard from "../api/topCard.json";
+import studentsSay from "../api/studentsSay.json";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -32,18 +32,33 @@ const Home = () => {
               From HTML/CSS basics to advanced React and Node.js, we cover
               everything you need to become a Full-Stack Developer.
             </p>
+            </div>
            <div className="about-image">
-             <div
-              style={{width: "100%",
+           {/*<!-- Placeholder image via generate_image later if needed, using a colored div for now -->*/}
+            <div
+              style={{
+                width: "500px",
                 height: "300px",
                 background: "linear-gradient(135deg, #4f46e5, #a855f7)",
                 borderRadius: "20px",
-              }}>
-               {/*<!-- Placeholder image via generate_image later if needed, using a colored div for now -->*/}
+              }}> 
               </div>
             </div>
               </div>  
             </div>
+    </section>
+
+    <section id="courses" className="courses">
+      <div className="container">
+        <h2>Our Top Courses</h2>
+        <div className="course-grid">
+          {topCard.map((item) => (
+            <article className="course-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+          </div>
           </div>
     </section>
        
@@ -53,28 +68,17 @@ const Home = () => {
           What Our Students Say
         </h2>
         <div className="testimonial-container">
-          <article class="testimonial-card">
-            <p>
-              "The best coding institute I've ever joined. The projects are
-              actually relevant!"
-            </p>
-            <strong>- Alex Johnson</strong>
-          </article>
-          <article className="testimonial-card">
-            <p>
-              "FuturePlix helped me land my first dev job in just 6 months.
-              Highly recommended."
-            </p>
-            <strong>- Sarah Miller</strong>
-          </article>
-          <article className="testimonial-card">
-            <p>
-              "Great mentors and a very supportive community. The React course
-              was a game changer."
-            </p>
-            <strong>- James Lee</strong>
-          </article>
-        </div>
+           {studentsSay.map((item) => {
+            return <article className="testimonial-card">
+              <p>
+                "{item.description}"
+              </p>
+              <strong>- {item.name}</strong>
+            </article>
+           })}
+
+          
+        </div>  
       </div>
     </section>
     <Contact/>
